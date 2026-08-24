@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 290" role="img" aria-label="赤と金の玉座">
+  <g shape-rendering="crispEdges">
+    <path d="M48 275V77h38V32h128v45h38v198z" fill="#5c2b31" stroke="#241722" stroke-width="10"/>
+    <path d="M73 80h154v174H73z" fill="#9d3442"/>
+    <path d="M101 80h98v174h-98z" fill="#b84b4a"/>
+    <path d="M40 50h46v42H40zm174 0h46v42h-46z" fill="#f3c44e" stroke="#4e301b" stroke-width="8"/>
+    <path d="M39 85h48v18H39zm174 0h48v18h-48z" fill="#f3c44e"/>
+    <path d="M64 235h172v34H64z" fill="#f1c34b" stroke="#4e301b" stroke-width="8"/>
+    <path d="M85 247h130v22H85z" fill="#7a2b3c"/>
+    <path d="M87 33h126v18H87z" fill="#f3c44e" stroke="#4e301b" stroke-width="7"/>
+    <path d="M134 12h32v39h-32z" fill="#f3c44e" stroke="#4e301b" stroke-width="7"/>
+    <path d="M20 257h260v25H20z" fill="#32202a"/>
+    <path d="M43 273h214v9H43z" fill="#f3c44e"/>
+  </g>
+</svg>

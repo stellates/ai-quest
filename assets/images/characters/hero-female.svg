@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 240" role="img" aria-label="赤いマントの女勇者">
+  <g shape-rendering="crispEdges">
+    <ellipse cx="89" cy="225" rx="50" ry="9" fill="#050711" opacity=".55"/>
+    <path d="M57 36h66v14H57zM47 49h86v30H47zM41 69h98v27H41z" fill="#633229"/>
+    <path d="M61 49h58v48H61z" fill="#edbd8d" stroke="#1d1522" stroke-width="7"/>
+    <path d="M61 50h17v48H61zM102 50h17v48h-17z" fill="#7c3a2e"/>
+    <path d="M73 75h10v7H73zm26 0h10v7H99z" fill="#171827"/>
+    <path d="M72 88h35v9H72z" fill="#bc5b4b"/>
+    <path d="M42 99h96v76H42z" fill="#a94263" stroke="#281735" stroke-width="8"/>
+    <path d="M44 103l-24 35 32 10 17-41zm92 0l24 35-32 10-17-41z" fill="#d15e79" stroke="#281735" stroke-width="8"/>
+    <path d="M68 104h44v60H68z" fill="#f0e5df"/><path d="M68 104h44v15H68z" fill="#70c89b"/>
+    <path d="M57 159h66v15H57z" fill="#e6c554"/><path d="M80 150h20v25H80z" fill="#704527"/>
+    <path d="M42 119h17v55H42zm79 0h17v55h-17z" fill="#edbd8d" stroke="#1d1522" stroke-width="6"/>
+    <path d="M64 173h21v43H64zm34 0h21v43H98z" fill="#e6e7ee" stroke="#1d192b" stroke-width="7"/>
+    <path d="M57 211h32v18H57zm36 0h32v18H93z" fill="#49334a"/>
+    <path d="M146 78h7v130h-7z" fill="#8b5a31" stroke="#281735" stroke-width="5"/>
+    <path d="M137 70h25v22h-25z" fill="#71e4e4" stroke="#281735" stroke-width="5"/><path d="M139 207h20v9h-20z" fill="#d9b34a"/>
+  </g>
+</svg>
