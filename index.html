@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090b16" />
+  <title>AI QUEST - 勇者のAI診断</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game" class="game-shell" aria-live="polite">
+    <button id="soundBtn" class="sound-btn" aria-label="音のオンオフ">♪ ON</button>
+
+    <section id="screen-title" class="screen active">
+      <div class="sky-stars" aria-hidden="true"></div>
+      <div class="mountains" aria-hidden="true"></div>
+      <div class="castle-silhouette" aria-hidden="true">
+        <span class="tower t1"></span><span class="tower t2"></span><span class="tower t3"></span>
+        <span class="keep"></span><span class="door"></span>
+      </div>
+      <div class="title-card pixel-panel">
+        <div class="crest" aria-hidden="true">✦</div>
+        <p class="eyebrow">8-BIT AI ADVENTURE</p>
+        <h1>AI QUEST</h1>
+        <p class="subtitle">勇者のAI診断</p>
+        <p class="small-copy">そなたに ふさわしきAIを 授けよう。</p>
+        <button id="startBtn" class="pixel-btn main-action">▶ 冒険をはじめる</button>
+        <p class="tiny">※ 音は最初の操作後に鳴ります</p>
+      </div>
+    </section>
+
+    <section id="screen-hero" class="screen">
+      <div class="scene castle-courtyard">
+        <div class="scene-title">勇者をえらべ</div>
+        <div class="hero-grid">
+          <button class="hero-card" data-gender="male" aria-label="男勇者を選ぶ">
+            <div class="pixel-hero hero-male" aria-hidden="true">
+              <span class="hair"></span><span class="head"></span><span class="body"></span><span class="belt"></span><span class="arm a1"></span><span class="arm a2"></span><span class="leg l1"></span><span class="leg l2"></span><span class="sword"></span>
+            </div>
+            <strong>男勇者</strong><small>剣と知恵で進む者</small>
+          </button>
+          <button class="hero-card" data-gender="female" aria-label="女勇者を選ぶ">
+            <div class="pixel-hero hero-female" aria-hidden="true">
+              <span class="hair"></span><span class="head"></span><span class="body"></span><span class="belt"></span><span class="arm a1"></span><span class="arm a2"></span><span class="leg l1"></span><span class="leg l2"></span><span class="staff"></span>
+            </div>
+            <strong>女勇者</strong><small>魔法と知恵で進む者</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-name" class="screen">
+      <div class="name-room">
+        <div class="book" aria-hidden="true"><span></span></div>
+        <div class="pixel-panel compact">
+          <p>冒険の書に 名をきざむのじゃ。</p>
+          <input id="nameInput" maxlength="12" autocomplete="off" placeholder="なまえ" aria-label="勇者の名前" />
+          <button id="nameBtn" class="pixel-btn">けってい</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-dialog" class="screen dialog-screen">
+      <div class="castle-room">
+        <div class="torch torch-left" aria-hidden="true"><i></i></div>
+        <div class="torch torch-right" aria-hidden="true"><i></i></div>
+        <div class="wall-banner left">AI</div><div class="wall-banner right">QUEST</div>
+        <div class="throne-area">
+          <div class="king pixel-king" aria-hidden="true">
+            <span class="crown"></span><span class="hair"></span><span class="face"></span><span class="beard"></span><span class="robe"></span><span class="scepter"></span>
+          </div>
+          <div class="throne"></div>
+        </div>
+        <div id="heroSprite" class="dialog-hero"></div>
+        <div class="floor-shadow"></div>
+      </div>
+      <div class="dialog-box pixel-panel">
+        <div class="dialog-topline"><div id="speaker" class="speaker">王さま</div><div id="progress" class="progress"></div></div>
+        <p id="dialogText"></p>
+        <div id="choices" class="choice-row"></div>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen">
+      <div class="result-wrap">
+        <div id="resultBurst" class="result-burst" aria-hidden="true"></div>
+        <div class="pixel-panel result-card">
+          <p class="result-kicker">王国認定・勇者適性</p>
+          <div id="heroType" class="hero-type">？？？型</div>
+          <p class="loot-text">▼ AI装備を てにいれた！</p>
+          <h2 id="resultName">AI</h2>
+          <p id="resultTagline" class="result-tagline"></p>
+          <div id="stats" class="stats"></div>
+          <p id="resultReason" class="reason"></p>
+          <div class="runner-up" id="runnerUp"></div>
+          <div class="gate" aria-hidden="true"><div class="gate-rune">✦</div><div class="gate-core"></div></div>
+          <button id="warpBtn" class="pixel-btn main-action">転移ゲートを起動</button>
+          <button id="restartBtn" class="pixel-btn secondary">もう一度 診断する</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
