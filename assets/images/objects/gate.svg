@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="青白く輝く転移の門">
+  <defs><radialGradient id="core"><stop stop-color="#fff"/><stop offset=".25" stop-color="#d4fbff"/><stop offset=".58" stop-color="#669ce8"/><stop offset="1" stop-color="#101946"/></radialGradient></defs>
+  <g shape-rendering="crispEdges">
+    <circle cx="150" cy="150" r="127" fill="#101849" stroke="#f3f1ff" stroke-width="10"/>
+    <circle cx="150" cy="150" r="106" fill="none" stroke="#5dd4e7" stroke-width="8" stroke-dasharray="9 13"/>
+    <circle cx="150" cy="150" r="88" fill="url(#core)" stroke="#a8f7ff" stroke-width="5"/>
+    <path d="M150 46v22m0 164v22M46 150h22m164 0h22M77 77l16 16m114 114l16 16M223 77l-16 16M93 207l-16 16" stroke="#fff7b0" stroke-width="8"/>
+    <path d="M150 71l12 49 42 30-42 30-12 49-12-49-42-30 42-30z" fill="none" stroke="#f1e68b" stroke-width="5"/>
+  </g>
+</svg>

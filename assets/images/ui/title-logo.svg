@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" role="img" aria-labelledby="title desc">
+  <title id="title">AI QUEST</title>
+  <desc id="desc">Gold and blue retro fantasy game logo</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3a5"/>
+      <stop offset=".32" stop-color="#ffd34f"/>
+      <stop offset="1" stop-color="#b86b1f"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8ee8ff"/>
+      <stop offset=".52" stop-color="#3574d6"/>
+      <stop offset="1" stop-color="#172c72"/>
+    </linearGradient>
+  </defs>
+  <g shape-rendering="crispEdges">
+    <path d="M100 41h600v20h26v29h18v97h-18v29h-26v20H100v-20H74v-29H56V90h18V61h26z" fill="#07112a" stroke="#f6df73" stroke-width="9"/>
+    <path d="M113 53h574v17h24v25h17v79h-17v25h-24v17H113v-17H89V174H72V95h17V70h24z" fill="#123d83" stroke="#214c9c" stroke-width="5"/>
+    <path d="M116 61h568l-18 31v70l18 31H116l18-31V92z" fill="#0a224d" opacity=".9"/>
+    <text x="400" y="151" text-anchor="middle" font-family="Courier New, monospace" font-size="116" font-weight="900" letter-spacing="6" fill="#050914" stroke="#050914" stroke-width="18" paint-order="stroke">AI QUEST</text>
+    <text x="400" y="144" text-anchor="middle" font-family="Courier New, monospace" font-size="116" font-weight="900" letter-spacing="6" fill="url(#gold)" stroke="#173f91" stroke-width="8" paint-order="stroke">AI QUEST</text>
+    <path d="M179 177h442v13H179z" fill="url(#blue)"/>
+    <path d="M273 206h254v17H273z" fill="#f6df73"/>
+    <text x="400" y="220" text-anchor="middle" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="4" fill="#101c43">AIおすすめ診断RPG</text>
+    <path d="M47 108h16v16H47zm690 0h16v16h-16zM47 157h16v16H47zm690 0h16v16h-16z" fill="#f6df73"/>
+  </g>
+</svg>

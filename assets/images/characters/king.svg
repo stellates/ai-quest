@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 260" role="img" aria-label="王冠と白ひげの王様">
+  <g shape-rendering="crispEdges">
+    <ellipse cx="105" cy="246" rx="72" ry="10" fill="#050711" opacity=".55"/>
+    <path d="M47 42h116v17H47zM59 27h23v18H59zm35-16h23v34H94zm37 16h23v18h-23z" fill="#f5ce51" stroke="#3b2418" stroke-width="7"/>
+    <path d="M60 58h90v63H60z" fill="#c0c1ca" stroke="#292432" stroke-width="8"/>
+    <path d="M71 66h68v58H71z" fill="#e5b782"/>
+    <path d="M71 67h16v18H71zm52 0h16v18h-16z" fill="#6f4c3b"/>
+    <path d="M82 92h12v9H82zm34 0h12v9h-12z" fill="#171827"/>
+    <path d="M83 106h44v15H83z" fill="#f5f2dc"/>
+    <path d="M67 119h76v24H67z" fill="#eee9d4"/>
+    <path d="M34 139h142v84H34z" fill="#8b304b" stroke="#321c31" stroke-width="9"/>
+    <path d="M45 147h120v72H45z" fill="#b44354"/>
+    <path d="M76 140h58v82H76z" fill="#f1d765"/><path d="M88 140h34v82H88z" fill="#9b2f49"/>
+    <path d="M33 154h21v62H33zm123 0h21v62h-21z" fill="#f0c37e" stroke="#321c31" stroke-width="7"/>
+    <path d="M22 99h7v132h-7z" fill="#bd8736" stroke="#2a1d25" stroke-width="5"/><path d="M12 90h28v20H12z" fill="#ffd862" stroke="#2a1d25" stroke-width="5"/>
+    <path d="M65 214h30v25H65zm50 0h30v25h-30z" fill="#302238"/>
+  </g>
+</svg>
