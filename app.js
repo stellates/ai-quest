@@ -408,11 +408,11 @@ function showQuestResult() {
   show('screen-result');
   document.getElementById('resultService').textContent = state.selectedService.name;
   document.getElementById('resultName').textContent = state.selectedPrompt.title;
-  document.getElementById('resultTagline').textContent = '今回の相棒とクエストは、王さまの運命のさいころで決まったぞ。';
+  document.getElementById('resultTagline').textContent = '今回のクエストは、王さまの運命のさいころで決まったぞ。';
   document.getElementById('heroType').textContent = '遊びのプロンプト';
   document.getElementById('questPrompt').value = state.selectedPrompt.text;
   document.getElementById('promptStatus').textContent = '';
-  document.getElementById('warpBtn').textContent = `${state.selectedService.name}へ行く ↗`;
+  document.getElementById('warpBtn').textContent = `${state.selectedService.name}へ行く`;
   requestAnimationFrame(() => resultScreen.classList.add('result-enter'));
   audioManager.playResultSequence();
   document.getElementById('copyPromptBtn').onclick = copyPrompt;
