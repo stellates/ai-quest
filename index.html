@@ -10,7 +10,7 @@
 </head>
 <body>
   <main id="game" class="game-shell" aria-live="polite">
-    <button id="soundBtn" class="sound-btn" aria-label="音のオンオフ">♪ ON</button>
+    <button id="soundBtn" class="sound-btn" aria-label="音のオンオフ" aria-pressed="true">♪ ON</button>
 
     <section id="screen-title" class="screen active">
       <div class="sky-stars" aria-hidden="true"></div>
@@ -33,12 +33,12 @@
       <div class="scene castle-courtyard">
         <div class="scene-title">勇者をえらべ</div>
         <div class="hero-grid">
-          <button class="hero-card" data-gender="male" aria-label="男勇者を選ぶ">
+          <button class="hero-card" data-gender="male" aria-label="男勇者を選ぶ" aria-pressed="false">
             <span class="hero-select-corner" aria-hidden="true">✦</span>
             <img class="character-art hero-art" src="assets/images/characters/hero-male.svg" alt="" />
             <strong>男勇者</strong><small>剣と知恵で進む者</small>
           </button>
-          <button class="hero-card" data-gender="female" aria-label="女勇者を選ぶ">
+          <button class="hero-card" data-gender="female" aria-label="女勇者を選ぶ" aria-pressed="false">
             <span class="hero-select-corner" aria-hidden="true">✦</span>
             <img class="character-art hero-art" src="assets/images/characters/hero-female.svg" alt="" />
             <strong>女勇者</strong><small>魔法と知恵で進む者</small>
@@ -63,19 +63,19 @@
       <div class="service-room">
         <div class="scene-title">AIの相棒をえらべ</div>
         <div class="service-grid">
-          <button class="service-card" data-service="chatgpt" aria-label="ChatGPTを選ぶ">
+          <button class="service-card" data-service="chatgpt" aria-label="ChatGPTを選ぶ" aria-pressed="false">
             <strong>ChatGPT</strong><small>対話の相棒</small>
           </button>
-          <button class="service-card" data-service="gemini" aria-label="Geminiを選ぶ">
+          <button class="service-card" data-service="gemini" aria-label="Geminiを選ぶ" aria-pressed="false">
             <strong>Gemini</strong><small>ひらめきの相棒</small>
           </button>
-          <button class="service-card" data-service="copilot" aria-label="Copilotを選ぶ">
+          <button class="service-card" data-service="copilot" aria-label="Copilotを選ぶ" aria-pressed="false">
             <strong>Copilot</strong><small>仕事の相棒</small>
           </button>
-          <button class="service-card" data-service="claude" aria-label="Claudeを選ぶ">
+          <button class="service-card" data-service="claude" aria-label="Claudeを選ぶ" aria-pressed="false">
             <strong>Claude</strong><small>文章づくりの相棒</small>
           </button>
-          <button class="service-card" data-service="grok" aria-label="Grokを選ぶ">
+          <button class="service-card" data-service="grok" aria-label="Grokを選ぶ" aria-pressed="false">
             <strong>Grok</strong><small>アイデアの相棒</small>
           </button>
         </div>

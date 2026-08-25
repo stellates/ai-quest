@@ -331,7 +331,11 @@ function startDialog() {
   typeLine(intro, () => addChoices([{ label: '運命を決める', onClick: drawQuest }]));
 }
 function showServiceSelection() {
-  document.querySelectorAll('.service-card').forEach(card => card.classList.toggle('selected', card.dataset.service === state.selectedService?.id));
+  document.querySelectorAll('.service-card').forEach(card => {
+    const selected = card.dataset.service === state.selectedService?.id;
+    card.classList.toggle('selected', selected);
+    card.setAttribute('aria-pressed', String(selected));
+  });
   show('screen-service');
 }
 function selectService(serviceId) {
@@ -443,9 +447,9 @@ document.addEventListener('pointerdown', handleUserGesture, { passive: true });
 document.addEventListener('keydown', handleUserGesture);
 document.addEventListener('visibilitychange', () => { if (document.hidden) audioManager.pauseForVisibility(); else audioManager.resumeFromVisibility() });
 document.querySelectorAll('button').forEach(bindFocusSound);
-document.getElementById('soundBtn').onclick = e => { state.sound = !state.sound; e.currentTarget.textContent = state.sound ? '♪ ON' : '♪ OFF'; e.currentTarget.classList.toggle('off', !state.sound); if (state.sound) { audioManager.unlock(); audioManager.syncScreen(currentScreenId()); sfx('confirm') } else audioManager.stopAll() };
+document.getElementById('soundBtn').onclick = e => { state.sound = !state.sound; e.currentTarget.textContent = state.sound ? '♪ ON' : '♪ OFF'; e.currentTarget.setAttribute('aria-pressed', String(state.sound)); e.currentTarget.classList.toggle('off', !state.sound); if (state.sound) { audioManager.unlock(); audioManager.syncScreen(currentScreenId()); sfx('confirm') } else audioManager.stopAll() };
 document.getElementById('startBtn').onclick = () => { audioManager.unlock(); audioManager.playBgm('title', .16); sfx('confirm'); show('screen-hero') };
-document.querySelectorAll('.hero-card').forEach(btn => { btn.onclick = () => { document.querySelectorAll('.hero-card').forEach(card => card.classList.toggle('selected', card === btn)); state.gender = btn.dataset.gender; sfx('confirm'); show('screen-name'); document.getElementById('nameInput').focus() } });
+document.querySelectorAll('.hero-card').forEach(btn => { btn.onclick = () => { document.querySelectorAll('.hero-card').forEach(card => { const selected = card === btn; card.classList.toggle('selected', selected); card.setAttribute('aria-pressed', String(selected)) }); state.gender = btn.dataset.gender; sfx('confirm'); show('screen-name'); document.getElementById('nameInput').focus() } });
 document.getElementById('nameBtn').onclick = () => { state.name = (document.getElementById('nameInput').value || 'ゆうしゃ').trim().slice(0, 12) || 'ゆうしゃ'; sfx('confirm'); showServiceSelection() };
 document.querySelectorAll('.service-card').forEach(btn => { btn.onclick = () => selectService(btn.dataset.service) });
 document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById('nameBtn').click() } });

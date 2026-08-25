@@ -17,11 +17,12 @@ body { display: grid; place-items: center; padding: 18px; font-family: "Courier 
 button, input { font: inherit; }
 button { cursor: pointer; }
 button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+:where(.pixel-btn, .hero-card, .service-card, .sound-btn) { font-weight: 700; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
 .game-shell { position: relative; width: min(100%, 920px); min-height: 700px; overflow: hidden; background: #0d1426; border: 8px solid #3c475c; box-shadow: 0 0 0 6px #020308, 0 22px 65px #000b; }
 .screen { display: none; min-height: 684px; }
 .screen.active { display: grid; place-items: center; }
-.sound-btn { position: absolute; z-index: 30; top: 12px; right: 12px; padding: 7px 10px; color: var(--text); background: #071124; border: 3px solid #f7f0d7; box-shadow: 4px 4px 0 #03040a; letter-spacing: 1px; }
+.sound-btn { position: absolute; z-index: 30; top: 12px; right: 12px; min-width: 64px; min-height: 48px; padding: 7px 10px; color: var(--text); background: #071124; border: 3px solid #f7f0d7; box-shadow: 4px 4px 0 #03040a; letter-spacing: 1px; transition: transform .08s steps(2), filter .08s steps(2); }
 .sound-btn:hover, .sound-btn:focus-visible { color: var(--gold); background: #152f5b; }
 .sound-btn.off { opacity: .6; }
 
@@ -60,6 +61,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .hero-grid { z-index: 2; display: grid; grid-template-columns: repeat(2, minmax(190px, 245px)); gap: 28px; }
 .hero-card { position: relative; min-height: 310px; padding: 20px 14px 14px; color: var(--text); background-color: #091a35e8; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
 .hero-card:hover, .hero-card:focus-visible, .hero-card.selected { filter: brightness(1.28); transform: translateY(-4px); }
+.hero-card.selected, .service-card.selected { outline: 3px solid var(--gold); outline-offset: -9px; }
 .hero-select-corner { position: absolute; top: 12px; right: 17px; color: var(--gold); font-size: 18px; opacity: .65; }
 .hero-card:hover .hero-select-corner, .hero-card:focus-visible .hero-select-corner, .hero-card.selected .hero-select-corner { opacity: 1; animation: cursorBlink .55s steps(2) infinite; }
 .character-art { display: block; image-rendering: pixelated; }
@@ -84,7 +86,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; width: min(100%, 720px); }
 .service-card { min-height: 132px; padding: 24px 14px; color: var(--text); background-color: #071933f2; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
 .service-card:hover, .service-card:focus-visible, .service-card.selected { filter: brightness(1.28); transform: translateY(-4px); }
-.service-card.selected { outline: 3px solid var(--gold); outline-offset: -9px; }
+.pixel-btn:active, .hero-card:active, .service-card:active, .sound-btn:active { filter: brightness(.92); transform: translate(3px, 3px); }
 .service-card strong, .service-card small { display: block; }
 .service-card strong { color: #fff8dc; font-size: 18px; text-shadow: 2px 2px 0 #070b15; }
 .service-card small { margin-top: 12px; color: #d7e2f3; font-size: 13px; text-shadow: 1px 1px 0 #070b15; }
