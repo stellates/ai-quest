@@ -110,6 +110,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .result-card { z-index: 2; width: min(92%, 680px); padding: 48px 68px 40px; background-color: #0c1c36; background-image: url("assets/images/ui/result-panel.svg"); opacity: 1; transform: translateY(0); }
 .result-enter .result-card { animation: equipmentReveal .65s steps(5) both; }
 .result-kicker { margin: 0; color: var(--gold); letter-spacing: 1px; }
+.result-service-label { margin: 9px 0 3px; color: var(--muted); font-size: 13px; }
+.result-service-label strong { color: var(--blue); font-size: 18px; }
 .hero-type { display: inline-block; margin: 11px 0 4px; padding: 6px 12px; color: var(--gold); background: #191329; border: 3px solid var(--gold); }
 .loot-text { margin: 12px 0 4px; color: #a9f2ad; font-size: 13px; animation: lootBlink 1.2s steps(2) infinite; }
 .result-card h2 { margin: 8px 0 4px; color: #fff7cf; font-size: clamp(34px, 7vw, 58px); text-shadow: 4px 4px 0 #3f2f16; }
@@ -120,6 +122,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .result-actions { display: flex; justify-content: center; }
 .prompt-status { min-height: 1.5em; margin: 6px 0 0; color: #a9f2ad; font-size: 12px; line-height: 1.5; }
 .gate { position: relative; width: 152px; height: 152px; margin: 22px auto; animation: gatePulse 1.2s steps(4) infinite alternate; }
+.gate, .gate * { pointer-events: none; }
 .gate-image { position: absolute; top: 50%; left: 50%; z-index: 2; width: 152px; height: 152px; transform: translate(-50%, -50%); }
 .gate-glow { position: absolute; top: 50%; left: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%); animation: spin 8s linear infinite; }
 .flash { animation: flash .75s linear; }
