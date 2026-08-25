@@ -26,6 +26,16 @@ const services = [
     id: 'copilot',
     name: 'Copilot',
     url: 'https://copilot.com/'
+  },
+  {
+    id: 'claude',
+    name: 'Claude',
+    url: 'https://claude.ai/'
+  },
+  {
+    id: 'grok',
+    name: 'Grok',
+    url: 'https://grok.com/'
   }
 ];
 

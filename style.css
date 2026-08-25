@@ -82,11 +82,12 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .service-room { display: grid; align-content: center; justify-items: center; width: 100%; min-height: 684px; padding: 30px 16px; background-color: #17253e; background-image: linear-gradient(#070c1c99, #070c1c99), url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
 .service-room .scene-title { margin-bottom: 28px; }
 .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; width: min(100%, 720px); }
-.service-card { min-height: 132px; padding: 24px 14px; color: var(--text); background-color: #091a35e8; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
+.service-card { min-height: 132px; padding: 24px 14px; color: var(--text); background-color: #071933f2; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
 .service-card:hover, .service-card:focus-visible, .service-card.selected { filter: brightness(1.28); transform: translateY(-4px); }
+.service-card.selected { outline: 3px solid var(--gold); outline-offset: -9px; }
 .service-card strong, .service-card small { display: block; }
-.service-card strong { color: #1b3157; font-size: 18px; text-shadow: 0 1px #fff8dc; }
-.service-card small { margin-top: 12px; color: #1c3457; font-size: 12px; text-shadow: 0 1px #fff8dc; }
+.service-card strong { color: #fff8dc; font-size: 18px; text-shadow: 2px 2px 0 #070b15; }
+.service-card small { margin-top: 12px; color: #d7e2f3; font-size: 13px; text-shadow: 1px 1px 0 #070b15; }
 
 /* Castle conversation */
 .dialog-screen { grid-template-rows: minmax(0, 1fr) 286px !important; align-items: stretch !important; background: #10182a; }
