@@ -177,7 +177,6 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: calc(100% - 22px); }
   .hero-card { min-height: 270px; padding: 17px 7px 12px; }
   .hero-art { width: 112px; height: 172px; }
-  .hero-card small { display: none; }
   .name-room-ornament { top: 120px; }
   .name-room-ornament i { width: 105px; }
   .compact { width: 95%; padding: 42px 27px; }
