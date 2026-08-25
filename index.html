@@ -116,14 +116,16 @@
             <textarea id="questPrompt" rows="3" readonly aria-label="王さまの遊びプロンプト"></textarea>
           </div>
           <div class="result-actions">
-            <button id="copyPromptBtn" class="pixel-btn">プロンプトをコピー</button>
+            <button id="copyPromptBtn" class="pixel-btn">依頼文をコピー</button>
           </div>
           <p id="promptStatus" class="prompt-status" aria-live="polite"></p>
           <div class="gate" aria-hidden="true"><img class="gate-glow" src="assets/images/objects/gate-glow.svg" alt="" /><img class="gate-image" src="assets/images/objects/gate.svg" alt="" /></div>
-          <button id="warpBtn" class="pixel-btn main-action">AIサービスへ旅立つ ↗</button>
-          <button id="drawAgainBtn" class="pixel-btn secondary">もう一度 王さまに引いてもらう</button>
-          <button id="changeServiceBtn" class="pixel-btn secondary">AIサービスを変更する</button>
-          <button id="restartBtn" class="pixel-btn secondary">最初からやり直す</button>
+          <div class="result-bottom-actions">
+            <button id="warpBtn" class="pixel-btn main-action">AIへ行く ↗</button>
+            <button id="drawAgainBtn" class="pixel-btn secondary">もう一度引く</button>
+            <button id="changeServiceBtn" class="pixel-btn secondary">AIを変更</button>
+            <button id="restartBtn" class="pixel-btn secondary">最初から</button>
+          </div>
         </div>
       </div>
     </section>

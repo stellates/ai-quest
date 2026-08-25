@@ -131,6 +131,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .quest-prompt-wrap label { display: block; margin-bottom: 8px; color: var(--gold); font-size: 13px; }
 #questPrompt { display: block; width: 100%; min-height: 94px; padding: 14px; color: var(--text); background: #040812; border: 3px solid #f7f0d7; line-height: 1.65; resize: none; }
 .result-actions { display: flex; justify-content: center; }
+.result-bottom-actions { display: flex; justify-content: center; gap: 8px; }
+.result-bottom-actions .pixel-btn { flex: 1 1 0; min-width: 0; margin: 0; padding: 8px 10px; white-space: nowrap; }
 .prompt-status { min-height: 1.5em; margin: 6px 0 0; color: #a9f2ad; font-size: 12px; line-height: 1.5; }
 .gate { position: relative; width: 152px; height: 152px; margin: 22px auto; animation: gatePulse 1.2s steps(4) infinite alternate; }
 .gate, .gate * { pointer-events: none; }
@@ -153,7 +155,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .gate { width: 120px; height: 120px; margin: 8px auto; }
   .gate-image { width: 120px; height: 120px; }
   .gate-glow { width: 180px; height: 180px; }
-  .result-card > .pixel-btn { min-height: 42px; margin: 4px; padding: 8px 12px; }
+  .result-bottom-actions .pixel-btn { min-height: 42px; }
 }
 
 @keyframes gatePulse { to { filter: brightness(1.35); transform: scale(1.06); } }
@@ -206,6 +208,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .result-card { width: 95%; padding: 42px 29px 34px; }
   .result-burst { width: 590px; height: 590px; }
   #questPrompt { font-size: 14px; }
+  .result-bottom-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .result-bottom-actions .pixel-btn { min-height: 48px; padding: 8px 6px; }
   .sound-btn { position: fixed; }
 }
 

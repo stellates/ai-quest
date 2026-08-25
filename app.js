@@ -408,7 +408,7 @@ function showQuestResult() {
   document.getElementById('heroType').textContent = '遊びのプロンプト';
   document.getElementById('questPrompt').value = state.selectedPrompt.text;
   document.getElementById('promptStatus').textContent = '';
-  document.getElementById('warpBtn').textContent = `${state.selectedService.name}へ旅立つ ↗`;
+  document.getElementById('warpBtn').textContent = `${state.selectedService.name}へ行く ↗`;
   requestAnimationFrame(() => resultScreen.classList.add('result-enter'));
   audioManager.playResultSequence();
   document.getElementById('copyPromptBtn').onclick = copyPrompt;
