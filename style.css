@@ -89,7 +89,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .service-card small { margin-top: 12px; color: #1c3457; font-size: 12px; text-shadow: 0 1px #fff8dc; }
 
 /* Castle conversation */
-.dialog-screen { grid-template-rows: minmax(0, 1fr) auto !important; align-items: stretch !important; background: #10182a; }
+.dialog-screen { grid-template-rows: minmax(0, 1fr) 286px !important; align-items: stretch !important; background: #10182a; }
 .castle-room { position: relative; width: 100%; min-height: 410px; overflow: hidden; background-color: #26324e; background-image: url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
 .castle-room::after { position: absolute; inset: 0; background: linear-gradient(90deg, #0b102750, transparent 22% 78%, #0b102750), linear-gradient(0deg, #120d1780, transparent 42%); content: ""; pointer-events: none; }
 .throne-area { position: absolute; top: 23px; left: 50%; z-index: 2; width: 300px; height: 350px; background: url("assets/images/backgrounds/throne-area.svg") center / 100% 100% no-repeat; transform: translateX(-50%); }
@@ -105,12 +105,12 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .torch-right { right: 18%; }
 .torch i { position: absolute; top: -25px; left: -5px; width: 20px; height: 29px; background: #ffae3c; box-shadow: 0 -9px #ff5a37, 0 0 20px #ff8c35; animation: flame .35s steps(2) infinite alternate; }
 .floor-shadow { position: absolute; bottom: 32px; left: 50%; z-index: 3; width: 390px; height: 24px; background: #0006; border-radius: 50%; transform: translateX(-50%); }
-.dialog-box { width: calc(100% - 30px); min-height: 175px; margin: 0 15px 15px; padding: 32px 54px 24px; text-align: left; }
+.dialog-box { width: calc(100% - 30px); height: 286px; min-height: 0; margin: 0 15px 15px; padding: 32px 54px 24px; overflow: hidden; text-align: left; }
 .dialog-topline { display: flex; justify-content: space-between; gap: 16px; }
 .speaker { color: var(--gold); font-weight: 700; }
 .progress { color: #a9bfdc; font-size: 12px; }
-#dialogText { min-height: 60px; margin: 12px 0 10px; font-size: 18px; line-height: 1.55; white-space: pre-line; }
-.choice-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+#dialogText { height: 112px; margin: 12px 0 10px; overflow-y: auto; font-size: 18px; line-height: 1.55; white-space: pre-line; }
+.choice-row { display: flex; flex-wrap: wrap; justify-content: flex-end; min-height: 64px; gap: 10px; }
 .choice-btn { min-width: 132px; }
 .choice-btn:first-child::before { color: var(--gold); content: "▶ "; }
 
@@ -180,8 +180,9 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .wall-banner.right { right: 18px; }
   .torch { top: 145px; }
   .floor-shadow { bottom: 21px; width: 260px; }
-  .dialog-box { width: calc(100% - 16px); min-height: 226px; margin: 0 8px 8px; padding: 35px 28px 25px; }
-  #dialogText { min-height: 92px; font-size: 16px; line-height: 1.65; }
+  .dialog-screen { grid-template-rows: minmax(0, 1fr) 320px !important; }
+  .dialog-box { width: calc(100% - 16px); height: 320px; margin: 0 8px 8px; padding: 35px 28px 25px; }
+  #dialogText { height: 154px; font-size: 16px; line-height: 1.65; }
   .choice-row { justify-content: center; }
   .choice-btn { min-width: 122px; margin: 4px; }
   .result-wrap { min-height: 100vh; padding: 18px 0; }
