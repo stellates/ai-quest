@@ -308,7 +308,7 @@ function rerollQuest() {
   show('screen-dialog');
   renderHero();
   const rerollText = 'また来たか。欲張りな勇者じゃ。\nでは、もう一度だけ運命のさいころを振ってやろう。';
-  typeLine(rerollText, showQuestResult);
+  typeLine(rerollText, () => addChoices([{ label: '結果をみる', onClick: showQuestResult }]));
 }
 
 function normalizeName(value) { return String(value || '').normalize('NFKC').toLowerCase().replace(/[\sー・._-]/g, '') }
