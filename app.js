@@ -8,7 +8,7 @@ const state = { gender: 'male', name: 'ゆうしゃ', sound: true, selectedServi
 const HISTORY_KEY = 'aiQuestHistoryV1';
 const HISTORY_LIMITS = { recentServices: 1, recentPrompts: 3 };
 
-// 登録なしの無料利用が公式に案内されている候補だけを抽選対象にする。
+// 登録なしの無料利用が公式に案内されている候補だけを選択肢にする。
 // 地域・端末・利用上限などの条件は各サービス側で変わるため、ここでは
 // 「必ず使える」とは断定せず、テキストのお題をコピーして送り出す。
 const services = [
@@ -159,6 +159,7 @@ const audioManager = (() => {
   let currentBgm = null;
   let sequenceId = 0;
   let kingIndex = 0;
+  let visibilityBgmName = null;
 
   Object.entries(bgm).forEach(([name, audio]) => { audio.loop = true; audio.preload = 'auto'; audio.playsInline = true; audio.volume = name === 'title' ? .16 : .11 });
   Object.entries(sfxSources).forEach(([name, sources]) => {
@@ -190,6 +191,8 @@ const audioManager = (() => {
     if (!state.sound) return;
     const audio = bgm[name];
     if (!audio) return;
+    if (document.hidden) { visibilityBgmName = name; return }
+    visibilityBgmName = null;
     ensureAudio();
     Object.entries(bgm).forEach(([otherName, otherAudio]) => { if (otherName !== name) otherAudio.pause() });
     audio.volume = volume ?? (name === 'title' ? .16 : .11);
@@ -197,7 +200,25 @@ const audioManager = (() => {
   }
 
   function pauseBgm(reset = false) {
+    visibilityBgmName = null;
     Object.values(bgm).forEach(audio => { audio.pause(); if (reset) audio.currentTime = 0 });
+  }
+
+  function pauseForVisibility() {
+    if (!document.hidden) return;
+    visibilityBgmName = Object.entries(bgm).find(([, audio]) => !audio.paused)?.[0] || visibilityBgmName;
+    Object.values(bgm).forEach(audio => audio.pause());
+  }
+
+  function resumeFromVisibility() {
+    if (document.hidden || !state.sound || !visibilityBgmName) return;
+    const name = visibilityBgmName;
+    const screenId = currentScreenId();
+    const screenBgm = screenId === 'screen-title' ? 'title' : screenId === 'screen-dialog' || screenId === 'screen-result' ? 'castle' : screenId === 'screen-hero' || screenId === 'screen-name' ? 'title' : null;
+    visibilityBgmName = null;
+    if (screenBgm !== name) { syncScreen(screenId); return }
+    const volume = screenId === 'screen-result' ? .055 : screenId === 'screen-hero' || screenId === 'screen-name' ? .12 : name === 'title' ? .16 : .11;
+    playBgm(name, volume);
   }
 
   function stopAll() {
@@ -216,7 +237,7 @@ const audioManager = (() => {
     } else if (screenId === 'screen-result') {
       pauseBgm(false);
     } else if (screenId === 'screen-hero' || screenId === 'screen-name') {
-      if (!bgm.title.paused) playBgm('title', .12); else pauseBgm(true);
+      if (!bgm.title.paused || visibilityBgmName === 'title') playBgm('title', .12); else pauseBgm(true);
     } else {
       pauseBgm(true);
     }
@@ -238,7 +259,7 @@ const audioManager = (() => {
     }, 2850);
   }
 
-  return { unlock: ensureAudio, playSfx, playBgm, pauseBgm, stopAll, syncScreen, playResultSequence };
+  return { unlock: ensureAudio, playSfx, playBgm, pauseBgm, pauseForVisibility, resumeFromVisibility, stopAll, syncScreen, playResultSequence };
 })();
 
 function sfx(name, multiplier = 1) { audioManager.playSfx(name, multiplier) }
@@ -299,6 +320,17 @@ function startDialog() {
   const intro = `おお、勇者 ${state.name} よ。よく来た。\n今日はそなたに、AIという少し変わった相棒を貸してやろう。\nついでに、暇つぶしのクエストもひとつ授ける。\n何が出るかは……わしにも知らん。`;
   typeLine(intro, () => addChoices([{ label: '運命を決める', onClick: drawQuest }]));
 }
+function showServiceSelection() {
+  document.querySelectorAll('.service-card').forEach(card => card.classList.toggle('selected', card.dataset.service === state.selectedService?.id));
+  show('screen-service');
+}
+function selectService(serviceId) {
+  const service = services.find(item => item.id === serviceId);
+  if (!service) return;
+  state.selectedService = service;
+  sfx('confirm');
+  startDialog();
+}
 function drawQuest() {
   sfx('confirm');
   showQuestResult();
@@ -308,7 +340,7 @@ function rerollQuest() {
   show('screen-dialog');
   renderHero();
   const rerollText = 'また来たか。欲張りな勇者じゃ。\nでは、もう一度だけ運命のさいころを振ってやろう。';
-  typeLine(rerollText, showQuestResult);
+  typeLine(rerollText, () => addChoices([{ label: '結果をみる', onClick: showQuestResult }]));
 }
 
 function normalizeName(value) { return String(value || '').normalize('NFKC').toLowerCase().replace(/[\sー・._-]/g, '') }
@@ -348,12 +380,10 @@ function promptWeight(prompt) {
 }
 function chooseQuest() {
   const history = readHistory();
-  const servicePool = availableItems(services, history.recentServices, HISTORY_LIMITS.recentServices);
   const promptPool = availableItems(prompts, history.recentPrompts, HISTORY_LIMITS.recentPrompts);
-  state.selectedService = weightedPick(servicePool, () => 1);
   state.selectedPrompt = weightedPick(promptPool, promptWeight);
   writeHistory({
-    recentServices: [state.selectedService.id, ...history.recentServices.filter(id => id !== state.selectedService.id)].slice(0, HISTORY_LIMITS.recentServices),
+    recentServices: history.recentServices,
     recentPrompts: [state.selectedPrompt.id, ...history.recentPrompts.filter(id => id !== state.selectedPrompt.id)].slice(0, HISTORY_LIMITS.recentPrompts)
   });
 }
@@ -401,10 +431,13 @@ function launchSelectedService() {
 function handleUserGesture(event) { audioManager.unlock(); const target = event.target instanceof Element ? event.target : null; if (state.sound && currentScreenId() === 'screen-title' && !target?.closest('#startBtn')) audioManager.playBgm('title', .16) }
 document.addEventListener('pointerdown', handleUserGesture, { passive: true });
 document.addEventListener('keydown', handleUserGesture);
+document.addEventListener('visibilitychange', () => { if (document.hidden) audioManager.pauseForVisibility(); else audioManager.resumeFromVisibility() });
 document.querySelectorAll('button').forEach(bindFocusSound);
 document.getElementById('soundBtn').onclick = e => { state.sound = !state.sound; e.currentTarget.textContent = state.sound ? '♪ ON' : '♪ OFF'; e.currentTarget.classList.toggle('off', !state.sound); if (state.sound) { audioManager.unlock(); audioManager.syncScreen(currentScreenId()); sfx('confirm') } else audioManager.stopAll() };
 document.getElementById('startBtn').onclick = () => { audioManager.unlock(); audioManager.playBgm('title', .16); sfx('confirm'); show('screen-hero') };
 document.querySelectorAll('.hero-card').forEach(btn => { btn.onclick = () => { document.querySelectorAll('.hero-card').forEach(card => card.classList.toggle('selected', card === btn)); state.gender = btn.dataset.gender; sfx('confirm'); show('screen-name'); document.getElementById('nameInput').focus() } });
-document.getElementById('nameBtn').onclick = () => { state.name = (document.getElementById('nameInput').value || 'ゆうしゃ').trim().slice(0, 12) || 'ゆうしゃ'; sfx('confirm'); startDialog() };
+document.getElementById('nameBtn').onclick = () => { state.name = (document.getElementById('nameInput').value || 'ゆうしゃ').trim().slice(0, 12) || 'ゆうしゃ'; sfx('confirm'); showServiceSelection() };
+document.querySelectorAll('.service-card').forEach(btn => { btn.onclick = () => selectService(btn.dataset.service) });
 document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById('nameBtn').click() } });
 document.getElementById('restartBtn').onclick = () => { sfx('cancel'); clearInterval(typingTimer); typingTimer = null; typingToken++; state.gender = 'male'; state.name = 'ゆうしゃ'; state.selectedService = null; state.selectedPrompt = null; document.getElementById('nameInput').value = ''; show('screen-title') };
+document.getElementById('changeServiceBtn').onclick = () => { sfx('cancel'); showServiceSelection() };

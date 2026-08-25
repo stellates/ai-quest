@@ -3,6 +3,6 @@
     <path d="M8 3h324v8h8v68h-8v8H8V71H0V11h8z" fill="#f8f1d3"/>
     <path d="M13 12h314v6h6v50h-6v6H13v-6H7V18h6z" fill="#6f85aa"/>
     <path d="M19 19h302v48H19z" fill="#081326" stroke="#152c50" stroke-width="5"/>
-    <path d="M19 19h28v5H24v10h-5zm302 0h-28v5h23v10h5zM19 67h28v-5H24V52h-5zm302 0h-28v-5h23V52h5z" fill="#f0cb58"/>
+    <path d="M8 13h11v5H13v8H8zm324 0h-11v5h6v8h5zM8 77h11v-5H13v-8H8zm324 0h-11v-5h6v-8h5z" fill="#f0cb58"/>
   </g>
 </svg>

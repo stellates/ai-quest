@@ -78,8 +78,18 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .compact p:not(.window-label) { font-size: 18px; }
 .compact input { width: min(100%, 310px); padding: 12px; color: var(--text); text-align: center; background: #040812; border: 3px solid #f7f0d7; }
 
+/* AI service selection */
+.service-room { display: grid; align-content: center; justify-items: center; width: 100%; min-height: 684px; padding: 30px 16px; background-color: #17253e; background-image: linear-gradient(#070c1c99, #070c1c99), url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
+.service-room .scene-title { margin-bottom: 28px; }
+.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; width: min(100%, 720px); }
+.service-card { min-height: 132px; padding: 24px 14px; color: var(--text); background-color: #091a35e8; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
+.service-card:hover, .service-card:focus-visible, .service-card.selected { filter: brightness(1.28); transform: translateY(-4px); }
+.service-card strong, .service-card small { display: block; }
+.service-card strong { color: #1b3157; font-size: 18px; text-shadow: 0 1px #fff8dc; }
+.service-card small { margin-top: 12px; color: #1c3457; font-size: 12px; text-shadow: 0 1px #fff8dc; }
+
 /* Castle conversation */
-.dialog-screen { grid-template-rows: minmax(0, 1fr) auto !important; align-items: stretch !important; background: #10182a; }
+.dialog-screen { grid-template-rows: minmax(0, 1fr) 286px !important; align-items: stretch !important; background: #10182a; }
 .castle-room { position: relative; width: 100%; min-height: 410px; overflow: hidden; background-color: #26324e; background-image: url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
 .castle-room::after { position: absolute; inset: 0; background: linear-gradient(90deg, #0b102750, transparent 22% 78%, #0b102750), linear-gradient(0deg, #120d1780, transparent 42%); content: ""; pointer-events: none; }
 .throne-area { position: absolute; top: 23px; left: 50%; z-index: 2; width: 300px; height: 350px; background: url("assets/images/backgrounds/throne-area.svg") center / 100% 100% no-repeat; transform: translateX(-50%); }
@@ -95,17 +105,17 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .torch-right { right: 18%; }
 .torch i { position: absolute; top: -25px; left: -5px; width: 20px; height: 29px; background: #ffae3c; box-shadow: 0 -9px #ff5a37, 0 0 20px #ff8c35; animation: flame .35s steps(2) infinite alternate; }
 .floor-shadow { position: absolute; bottom: 32px; left: 50%; z-index: 3; width: 390px; height: 24px; background: #0006; border-radius: 50%; transform: translateX(-50%); }
-.dialog-box { width: calc(100% - 30px); min-height: 175px; margin: 0 15px 15px; padding: 32px 54px 24px; text-align: left; }
+.dialog-box { width: calc(100% - 30px); height: 286px; min-height: 0; margin: 0 15px 15px; padding: 32px 54px 24px; overflow: hidden; text-align: left; }
 .dialog-topline { display: flex; justify-content: space-between; gap: 16px; }
 .speaker { color: var(--gold); font-weight: 700; }
 .progress { color: #a9bfdc; font-size: 12px; }
-#dialogText { min-height: 60px; margin: 12px 0 10px; font-size: 18px; line-height: 1.55; white-space: pre-line; }
-.choice-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+#dialogText { height: 112px; margin: 12px 0 10px; overflow-y: auto; font-size: 18px; line-height: 1.55; white-space: pre-line; }
+.choice-row { display: flex; flex-wrap: wrap; justify-content: flex-end; min-height: 64px; gap: 10px; }
 .choice-btn { min-width: 132px; }
 .choice-btn:first-child::before { color: var(--gold); content: "▶ "; }
 
 /* Result / equipment */
-.result-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 684px; overflow: auto; background: radial-gradient(circle at 50% 42%, #304e84 0 11%, #182749 38%, #080b17 78%); }
+.result-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 684px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #304e84 0 11%, #182749 38%, #080b17 78%); }
 .result-burst { position: absolute; width: 720px; height: 720px; background: repeating-conic-gradient(#fff2 0 7deg, transparent 7deg 17deg); animation: spin 18s linear infinite; }
 .result-card { z-index: 2; width: min(92%, 680px); padding: 48px 68px 40px; background-color: #0c1c36; background-image: url("assets/images/ui/result-panel.svg"); opacity: 1; transform: translateY(0); }
 .result-enter .result-card { animation: equipmentReveal .65s steps(5) both; }
@@ -127,6 +137,23 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .gate-glow { position: absolute; top: 50%; left: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%); animation: spin 8s linear infinite; }
 .flash { animation: flash .75s linear; }
 .shake { animation: shake .18s linear 2; }
+
+@media (min-width: 641px) {
+  .result-card { padding: 24px 48px 20px; }
+  .result-service-label { margin: 4px 0 2px; }
+  .hero-type { margin: 6px 0 2px; padding: 4px 10px; }
+  .loot-text { margin: 6px 0 2px; }
+  .result-card h2 { font-size: clamp(30px, 5vw, 46px); }
+  .result-tagline { margin: 6px 0 8px; }
+  .quest-prompt-wrap { margin: 8px auto 4px; }
+  #questPrompt { min-height: 70px; height: 70px; padding: 10px; }
+  .result-actions .pixel-btn { min-height: 42px; margin: 4px; padding: 8px 12px; }
+  .prompt-status { margin: 2px 0 0; }
+  .gate { width: 120px; height: 120px; margin: 8px auto; }
+  .gate-image { width: 120px; height: 120px; }
+  .gate-glow { width: 180px; height: 180px; }
+  .result-card > .pixel-btn { min-height: 42px; margin: 4px; padding: 8px 12px; }
+}
 
 @keyframes gatePulse { to { filter: brightness(1.35); transform: scale(1.06); } }
 @keyframes equipmentReveal { 0% { opacity: 0; transform: translateY(16px) scale(.97); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
@@ -150,10 +177,14 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; width: calc(100% - 22px); }
   .hero-card { min-height: 270px; padding: 17px 7px 12px; }
   .hero-art { width: 112px; height: 172px; }
-  .hero-card small { display: none; }
   .name-room-ornament { top: 120px; }
   .name-room-ornament i { width: 105px; }
   .compact { width: 95%; padding: 42px 27px; }
+  .service-room { min-height: 100vh; padding: 22px 12px; }
+  .service-room .scene-title { margin-bottom: 18px; }
+  .service-grid { grid-template-columns: 1fr; gap: 12px; width: min(100%, 330px); }
+  .service-card { min-height: 88px; padding: 14px 12px; }
+  .service-card small { margin-top: 6px; }
   .castle-room { min-height: 52vh; background-position: center top; }
   .throne-area { top: 18px; width: 230px; height: 280px; }
   .throne { width: 208px; }
@@ -165,11 +196,12 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .wall-banner.right { right: 18px; }
   .torch { top: 145px; }
   .floor-shadow { bottom: 21px; width: 260px; }
-  .dialog-box { width: calc(100% - 16px); min-height: 226px; margin: 0 8px 8px; padding: 35px 28px 25px; }
-  #dialogText { min-height: 92px; font-size: 16px; line-height: 1.65; }
+  .dialog-screen { grid-template-rows: minmax(0, 1fr) 320px !important; }
+  .dialog-box { width: calc(100% - 16px); height: 320px; margin: 0 8px 8px; padding: 35px 28px 25px; }
+  #dialogText { height: 154px; font-size: 16px; line-height: 1.65; }
   .choice-row { justify-content: center; }
   .choice-btn { min-width: 122px; margin: 4px; }
-  .result-wrap { min-height: 100vh; padding: 18px 0; }
+  .result-wrap { min-height: 100vh; overflow: auto; padding: 18px 0; }
   .result-card { width: 95%; padding: 42px 29px 34px; }
   .result-burst { width: 590px; height: 590px; }
   #questPrompt { font-size: 14px; }
