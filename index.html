@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#090b16" />
-  <title>AI QUEST - 勇者のAI診断</title>
+  <title>AI QUEST - 王さまの遊びプロンプト</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -20,10 +20,10 @@
         <span class="keep"></span><span class="door"></span>
       </div>
       <div class="title-card pixel-panel">
-        <img class="title-logo" src="assets/images/ui/title-logo.svg" alt="AI QUEST — AIおすすめ診断RPG" />
+        <img class="title-logo" src="assets/images/ui/title-logo.svg" alt="AI QUEST — 王さまの遊びプロンプトRPG" />
         <p class="eyebrow">8-BIT AI ADVENTURE</p>
-        <p class="subtitle">勇者のAI診断</p>
-        <p class="small-copy">そなたに ふさわしきAIを 授けよう。</p>
+        <p class="subtitle">王さまの遊びプロンプト</p>
+        <p class="small-copy">そなたを ちょっとしたAIの冒険へ 送り出そう。</p>
         <button id="startBtn" class="pixel-btn main-action">▶ 冒険をはじめる</button>
         <p class="tiny">※ 音は最初の操作後に鳴ります</p>
       </div>
@@ -82,17 +82,22 @@
       <div class="result-wrap">
         <div id="resultBurst" class="result-burst" aria-hidden="true"></div>
         <div class="pixel-panel result-card">
-          <p class="result-kicker">王国認定・勇者適性</p>
-          <div id="heroType" class="hero-type">？？？型</div>
-          <p class="loot-text">▼ AI装備を てにいれた！</p>
-          <h2 id="resultName">AI</h2>
+          <p class="result-kicker">王さまの遊びのお題</p>
+          <div id="heroType" class="hero-type">遊びのプロンプト</div>
+          <p class="loot-text">▼ 実行プロンプトを てにいれた！</p>
+          <h2 id="resultName">方向感覚の迷宮</h2>
           <p id="resultTagline" class="result-tagline"></p>
-          <div id="stats" class="stats"></div>
-          <p id="resultReason" class="reason"></p>
-          <div class="runner-up" id="runnerUp"></div>
+          <div class="quest-prompt-wrap">
+            <label for="questPrompt">王さまからの依頼</label>
+            <textarea id="questPrompt" rows="3" readonly aria-label="王さまの遊びプロンプト"></textarea>
+          </div>
+          <div class="result-actions">
+            <button id="copyPromptBtn" class="pixel-btn">プロンプトをコピー</button>
+          </div>
+          <p id="promptStatus" class="prompt-status" aria-live="polite"></p>
           <div class="gate" aria-hidden="true"><img class="gate-glow" src="assets/images/objects/gate-glow.svg" alt="" /><img class="gate-image" src="assets/images/objects/gate.svg" alt="" /></div>
-          <button id="warpBtn" class="pixel-btn main-action">転移ゲートを起動</button>
-          <button id="restartBtn" class="pixel-btn secondary">もう一度 診断する</button>
+          <button id="warpBtn" class="pixel-btn main-action">ChatGPTへ旅立つ ↗</button>
+          <button id="restartBtn" class="pixel-btn secondary">もう一度 遊ぶ</button>
         </div>
       </div>
     </section>

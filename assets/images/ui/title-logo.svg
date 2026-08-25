@@ -21,7 +21,7 @@
     <text x="400" y="144" text-anchor="middle" font-family="Courier New, monospace" font-size="116" font-weight="900" letter-spacing="6" fill="url(#gold)" stroke="#173f91" stroke-width="8" paint-order="stroke">AI QUEST</text>
     <path d="M179 177h442v13H179z" fill="url(#blue)"/>
     <path d="M273 206h254v17H273z" fill="#f6df73"/>
-    <text x="400" y="220" text-anchor="middle" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="4" fill="#101c43">AIおすすめ診断RPG</text>
+    <text x="400" y="220" text-anchor="middle" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="4" fill="#101c43">王さまの遊びプロンプトRPG</text>
     <path d="M47 108h16v16H47zm690 0h16v16h-16zM47 157h16v16H47zm690 0h16v16h-16z" fill="#f6df73"/>
   </g>
 </svg>

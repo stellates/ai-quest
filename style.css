@@ -114,13 +114,11 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .loot-text { margin: 12px 0 4px; color: #a9f2ad; font-size: 13px; animation: lootBlink 1.2s steps(2) infinite; }
 .result-card h2 { margin: 8px 0 4px; color: #fff7cf; font-size: clamp(34px, 7vw, 58px); text-shadow: 4px 4px 0 #3f2f16; }
 .result-tagline { margin-bottom: 18px; color: var(--muted); }
-.stats { display: grid; gap: 8px; max-width: 450px; margin: 18px auto; text-align: left; }
-.stat-row { display: grid; grid-template-columns: 110px 1fr 38px; gap: 10px; align-items: center; }
-.stat-bar { height: 15px; overflow: hidden; background: #090b10; border: 3px solid #fff; }
-.stat-fill { height: 100%; background: repeating-linear-gradient(90deg, #e5ca58 0 12px, #c6a934 12px 16px); }
-.stat-value { color: #f4df82; text-align: right; }
-.reason { line-height: 1.7; }
-.runner-up { margin: 14px 0; color: #a8b4cf; font-size: 12px; }
+.quest-prompt-wrap { margin: 18px auto 8px; text-align: left; }
+.quest-prompt-wrap label { display: block; margin-bottom: 8px; color: var(--gold); font-size: 13px; }
+#questPrompt { display: block; width: 100%; min-height: 94px; padding: 14px; color: var(--text); background: #040812; border: 3px solid #f7f0d7; line-height: 1.65; resize: none; }
+.result-actions { display: flex; justify-content: center; }
+.prompt-status { min-height: 1.5em; margin: 6px 0 0; color: #a9f2ad; font-size: 12px; line-height: 1.5; }
 .gate { position: relative; width: 152px; height: 152px; margin: 22px auto; animation: gatePulse 1.2s steps(4) infinite alternate; }
 .gate-image { position: absolute; top: 50%; left: 50%; z-index: 2; width: 152px; height: 152px; transform: translate(-50%, -50%); }
 .gate-glow { position: absolute; top: 50%; left: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%); animation: spin 8s linear infinite; }
@@ -171,8 +169,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .result-wrap { min-height: 100vh; padding: 18px 0; }
   .result-card { width: 95%; padding: 42px 29px 34px; }
   .result-burst { width: 590px; height: 590px; }
-  .stat-row { grid-template-columns: 58px minmax(0, 1fr) auto; gap: 4px; font-size: 12px; }
-  .stat-value { font-size: 10px; white-space: nowrap; }
+  #questPrompt { font-size: 14px; }
   .sound-btn { position: fixed; }
 }
 
