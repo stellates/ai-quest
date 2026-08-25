@@ -59,6 +59,23 @@
       </div>
     </section>
 
+    <section id="screen-service" class="screen">
+      <div class="service-room">
+        <div class="scene-title">AIの相棒をえらべ</div>
+        <div class="service-grid">
+          <button class="service-card" data-service="chatgpt" aria-label="ChatGPTを選ぶ">
+            <strong>ChatGPT</strong><small>対話の相棒</small>
+          </button>
+          <button class="service-card" data-service="gemini" aria-label="Geminiを選ぶ">
+            <strong>Gemini</strong><small>ひらめきの相棒</small>
+          </button>
+          <button class="service-card" data-service="copilot" aria-label="Copilotを選ぶ">
+            <strong>Copilot</strong><small>仕事の相棒</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section id="screen-dialog" class="screen dialog-screen">
       <div class="castle-room">
         <div class="torch torch-left" aria-hidden="true"><i></i></div>
@@ -99,6 +116,7 @@
           <div class="gate" aria-hidden="true"><img class="gate-glow" src="assets/images/objects/gate-glow.svg" alt="" /><img class="gate-image" src="assets/images/objects/gate.svg" alt="" /></div>
           <button id="warpBtn" class="pixel-btn main-action">AIサービスへ旅立つ ↗</button>
           <button id="drawAgainBtn" class="pixel-btn secondary">もう一度 王さまに引いてもらう</button>
+          <button id="changeServiceBtn" class="pixel-btn secondary">AIサービスを変更する</button>
           <button id="restartBtn" class="pixel-btn secondary">最初からやり直す</button>
         </div>
       </div>

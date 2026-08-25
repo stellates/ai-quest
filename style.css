@@ -78,6 +78,16 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .compact p:not(.window-label) { font-size: 18px; }
 .compact input { width: min(100%, 310px); padding: 12px; color: var(--text); text-align: center; background: #040812; border: 3px solid #f7f0d7; }
 
+/* AI service selection */
+.service-room { display: grid; align-content: center; justify-items: center; width: 100%; min-height: 684px; padding: 30px 16px; background-color: #17253e; background-image: linear-gradient(#070c1c99, #070c1c99), url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
+.service-room .scene-title { margin-bottom: 28px; }
+.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; width: min(100%, 720px); }
+.service-card { min-height: 132px; padding: 24px 14px; color: var(--text); background-color: #091a35e8; background-image: url("assets/images/ui/choice-frame.svg"); background-size: 100% 100%; border: 0; box-shadow: 7px 7px 0 #020308; transition: transform .1s steps(2), filter .1s steps(2); }
+.service-card:hover, .service-card:focus-visible, .service-card.selected { filter: brightness(1.28); transform: translateY(-4px); }
+.service-card strong, .service-card small { display: block; }
+.service-card strong { color: #1b3157; font-size: 18px; text-shadow: 0 1px #fff8dc; }
+.service-card small { margin-top: 12px; color: #1c3457; font-size: 12px; text-shadow: 0 1px #fff8dc; }
+
 /* Castle conversation */
 .dialog-screen { grid-template-rows: minmax(0, 1fr) auto !important; align-items: stretch !important; background: #10182a; }
 .castle-room { position: relative; width: 100%; min-height: 410px; overflow: hidden; background-color: #26324e; background-image: url("assets/images/backgrounds/castle-room.svg"); background-position: center; background-size: cover; }
@@ -154,6 +164,11 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   .name-room-ornament { top: 120px; }
   .name-room-ornament i { width: 105px; }
   .compact { width: 95%; padding: 42px 27px; }
+  .service-room { min-height: 100vh; padding: 22px 12px; }
+  .service-room .scene-title { margin-bottom: 18px; }
+  .service-grid { grid-template-columns: 1fr; gap: 12px; width: min(100%, 330px); }
+  .service-card { min-height: 88px; padding: 14px 12px; }
+  .service-card small { margin-top: 6px; }
   .castle-room { min-height: 52vh; background-position: center top; }
   .throne-area { top: 18px; width: 230px; height: 280px; }
   .throne { width: 208px; }

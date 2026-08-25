@@ -8,7 +8,7 @@ const state = { gender: 'male', name: 'ゆうしゃ', sound: true, selectedServi
 const HISTORY_KEY = 'aiQuestHistoryV1';
 const HISTORY_LIMITS = { recentServices: 1, recentPrompts: 3 };
 
-// 登録なしの無料利用が公式に案内されている候補だけを抽選対象にする。
+// 登録なしの無料利用が公式に案内されている候補だけを選択肢にする。
 // 地域・端末・利用上限などの条件は各サービス側で変わるため、ここでは
 // 「必ず使える」とは断定せず、テキストのお題をコピーして送り出す。
 const services = [
@@ -299,6 +299,17 @@ function startDialog() {
   const intro = `おお、勇者 ${state.name} よ。よく来た。\n今日はそなたに、AIという少し変わった相棒を貸してやろう。\nついでに、暇つぶしのクエストもひとつ授ける。\n何が出るかは……わしにも知らん。`;
   typeLine(intro, () => addChoices([{ label: '運命を決める', onClick: drawQuest }]));
 }
+function showServiceSelection() {
+  document.querySelectorAll('.service-card').forEach(card => card.classList.toggle('selected', card.dataset.service === state.selectedService?.id));
+  show('screen-service');
+}
+function selectService(serviceId) {
+  const service = services.find(item => item.id === serviceId);
+  if (!service) return;
+  state.selectedService = service;
+  sfx('confirm');
+  startDialog();
+}
 function drawQuest() {
   sfx('confirm');
   showQuestResult();
@@ -348,12 +359,10 @@ function promptWeight(prompt) {
 }
 function chooseQuest() {
   const history = readHistory();
-  const servicePool = availableItems(services, history.recentServices, HISTORY_LIMITS.recentServices);
   const promptPool = availableItems(prompts, history.recentPrompts, HISTORY_LIMITS.recentPrompts);
-  state.selectedService = weightedPick(servicePool, () => 1);
   state.selectedPrompt = weightedPick(promptPool, promptWeight);
   writeHistory({
-    recentServices: [state.selectedService.id, ...history.recentServices.filter(id => id !== state.selectedService.id)].slice(0, HISTORY_LIMITS.recentServices),
+    recentServices: history.recentServices,
     recentPrompts: [state.selectedPrompt.id, ...history.recentPrompts.filter(id => id !== state.selectedPrompt.id)].slice(0, HISTORY_LIMITS.recentPrompts)
   });
 }
@@ -405,6 +414,8 @@ document.querySelectorAll('button').forEach(bindFocusSound);
 document.getElementById('soundBtn').onclick = e => { state.sound = !state.sound; e.currentTarget.textContent = state.sound ? '♪ ON' : '♪ OFF'; e.currentTarget.classList.toggle('off', !state.sound); if (state.sound) { audioManager.unlock(); audioManager.syncScreen(currentScreenId()); sfx('confirm') } else audioManager.stopAll() };
 document.getElementById('startBtn').onclick = () => { audioManager.unlock(); audioManager.playBgm('title', .16); sfx('confirm'); show('screen-hero') };
 document.querySelectorAll('.hero-card').forEach(btn => { btn.onclick = () => { document.querySelectorAll('.hero-card').forEach(card => card.classList.toggle('selected', card === btn)); state.gender = btn.dataset.gender; sfx('confirm'); show('screen-name'); document.getElementById('nameInput').focus() } });
-document.getElementById('nameBtn').onclick = () => { state.name = (document.getElementById('nameInput').value || 'ゆうしゃ').trim().slice(0, 12) || 'ゆうしゃ'; sfx('confirm'); startDialog() };
+document.getElementById('nameBtn').onclick = () => { state.name = (document.getElementById('nameInput').value || 'ゆうしゃ').trim().slice(0, 12) || 'ゆうしゃ'; sfx('confirm'); showServiceSelection() };
+document.querySelectorAll('.service-card').forEach(btn => { btn.onclick = () => selectService(btn.dataset.service) });
 document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById('nameBtn').click() } });
 document.getElementById('restartBtn').onclick = () => { sfx('cancel'); clearInterval(typingTimer); typingTimer = null; typingToken++; state.gender = 'male'; state.name = 'ゆうしゃ'; state.selectedService = null; state.selectedPrompt = null; document.getElementById('nameInput').value = ''; show('screen-title') };
+document.getElementById('changeServiceBtn').onclick = () => { sfx('cancel'); showServiceSelection() };
