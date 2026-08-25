@@ -115,7 +115,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .choice-btn:first-child::before { color: var(--gold); content: "▶ "; }
 
 /* Result / equipment */
-.result-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 684px; overflow: auto; background: radial-gradient(circle at 50% 42%, #304e84 0 11%, #182749 38%, #080b17 78%); }
+.result-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 684px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #304e84 0 11%, #182749 38%, #080b17 78%); }
 .result-burst { position: absolute; width: 720px; height: 720px; background: repeating-conic-gradient(#fff2 0 7deg, transparent 7deg 17deg); animation: spin 18s linear infinite; }
 .result-card { z-index: 2; width: min(92%, 680px); padding: 48px 68px 40px; background-color: #0c1c36; background-image: url("assets/images/ui/result-panel.svg"); opacity: 1; transform: translateY(0); }
 .result-enter .result-card { animation: equipmentReveal .65s steps(5) both; }
@@ -137,6 +137,23 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
 .gate-glow { position: absolute; top: 50%; left: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%); animation: spin 8s linear infinite; }
 .flash { animation: flash .75s linear; }
 .shake { animation: shake .18s linear 2; }
+
+@media (min-width: 641px) {
+  .result-card { padding: 24px 48px 20px; }
+  .result-service-label { margin: 4px 0 2px; }
+  .hero-type { margin: 6px 0 2px; padding: 4px 10px; }
+  .loot-text { margin: 6px 0 2px; }
+  .result-card h2 { font-size: clamp(30px, 5vw, 46px); }
+  .result-tagline { margin: 6px 0 8px; }
+  .quest-prompt-wrap { margin: 8px auto 4px; }
+  #questPrompt { min-height: 70px; height: 70px; padding: 10px; }
+  .result-actions .pixel-btn { min-height: 42px; margin: 4px; padding: 8px 12px; }
+  .prompt-status { margin: 2px 0 0; }
+  .gate { width: 120px; height: 120px; margin: 8px auto; }
+  .gate-image { width: 120px; height: 120px; }
+  .gate-glow { width: 180px; height: 180px; }
+  .result-card > .pixel-btn { min-height: 42px; margin: 4px; padding: 8px 12px; }
+}
 
 @keyframes gatePulse { to { filter: brightness(1.35); transform: scale(1.06); } }
 @keyframes equipmentReveal { 0% { opacity: 0; transform: translateY(16px) scale(.97); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
@@ -185,7 +202,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outl
   #dialogText { height: 154px; font-size: 16px; line-height: 1.65; }
   .choice-row { justify-content: center; }
   .choice-btn { min-width: 122px; margin: 4px; }
-  .result-wrap { min-height: 100vh; padding: 18px 0; }
+  .result-wrap { min-height: 100vh; overflow: auto; padding: 18px 0; }
   .result-card { width: 95%; padding: 42px 29px 34px; }
   .result-burst { width: 590px; height: 590px; }
   #questPrompt { font-size: 14px; }
