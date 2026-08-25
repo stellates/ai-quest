@@ -72,7 +72,7 @@
         <div class="floor-shadow"></div>
       </div>
       <div class="dialog-box pixel-panel">
-        <div class="dialog-topline"><div id="speaker" class="speaker">王さま</div><div id="progress" class="progress"></div></div>
+        <div class="dialog-topline"><div id="speaker" class="speaker">王さま</div></div>
         <p id="dialogText"></p>
         <div id="choices" class="choice-row"></div>
       </div>
@@ -83,6 +83,7 @@
         <div id="resultBurst" class="result-burst" aria-hidden="true"></div>
         <div class="pixel-panel result-card">
           <p class="result-kicker">王さまの遊びのお題</p>
+          <p class="result-service-label">旅立ち先：<strong id="resultService">ChatGPT</strong></p>
           <div id="heroType" class="hero-type">遊びのプロンプト</div>
           <p class="loot-text">▼ 実行プロンプトを てにいれた！</p>
           <h2 id="resultName">方向感覚の迷宮</h2>
@@ -96,8 +97,9 @@
           </div>
           <p id="promptStatus" class="prompt-status" aria-live="polite"></p>
           <div class="gate" aria-hidden="true"><img class="gate-glow" src="assets/images/objects/gate-glow.svg" alt="" /><img class="gate-image" src="assets/images/objects/gate.svg" alt="" /></div>
-          <button id="warpBtn" class="pixel-btn main-action">ChatGPTへ旅立つ ↗</button>
-          <button id="restartBtn" class="pixel-btn secondary">もう一度 遊ぶ</button>
+          <button id="warpBtn" class="pixel-btn main-action">AIサービスへ旅立つ ↗</button>
+          <button id="drawAgainBtn" class="pixel-btn secondary">もう一度 王さまに引いてもらう</button>
+          <button id="restartBtn" class="pixel-btn secondary">最初からやり直す</button>
         </div>
       </div>
     </section>
